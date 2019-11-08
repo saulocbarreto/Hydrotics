@@ -15,20 +15,28 @@ pip install foobar
 
 ## Pins and Connections
 
-*YS-201F Connections*
+*YS-201F Connections* (Change to Fritizing)
 
-'''Red ------------- 5V
-
+Red ------------- 5V
            +----- 3V3
            |
           10K
            |
 Yellow ----+----- GPIO23 (BCM Mode) or Pin 16 (BOARD Mode)
+Black ----------- Ground
 
-Black ----------- Ground'''
+*NRF24L01+ Connections* (Draw with Fritizin)
 
-*NRF24L01+ Connections*
-
+| NRF24L01 | Raspberry Pin (BCM Mode)|
+| --- | --- |
+| 01 - GND | Pin 25 |
+| 02 - VCC | Pin 17 |
+| 03 - CE | Pin 15 |
+| 04 - CSN | Pin 24 |
+| 05 - SCK | Pin 23 |
+| 06 - MOSI | Pin 19 |
+| 07 - MISO | Pin 21 |
+| 08 - IRQ | - |
 
 
 ## Contributing
