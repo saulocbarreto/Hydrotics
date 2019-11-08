@@ -4,7 +4,7 @@ Python code for communication between Raspberry Pi's using NRF24L01+ using [Newl
 
 ## Hardware
 
-* 2x Raspberry Pi 3 Model B (both with 16GB Class 10 microSD cards)
+* 2x Raspberry Pi 3 Model B (both with 16GB Class 10 microSD card)
 * YS-201F Flow Sensor
 * Wires
 * 10k Resistor
@@ -35,10 +35,10 @@ Red ------------- 5V
 Yellow ----+----- GPIO23 (BCM Mode) / Pin 16 (BOARD Mode)
 Black ----------- Ground
 ```
-*NRF24L01+ Connections*<br/>
+*NRF24L01+ Connections* <br/><br/>
 Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
 
-| NRF24L01+ | Raspberry Pin (BCM Mode)|
+| NRF24L01+ | Raspberry Pin (BOARD Mode)|
 | --- | --- |
 | 01 - GND | Pin 25 |
 | 02 - VCC | Pin 17 |
@@ -52,6 +52,7 @@ Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (
 
 ## Set scripts to start on boot (rc.local) and using screen to see the output
 
+Edit the rc.local file: <br/>
 `sudo nano /etc/rc.local`
 * Add the following line before line with `exit 0':
 `screen -dmS receiverscreen sudo python /path/to/Receiver.py $`
@@ -61,15 +62,12 @@ Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (
 `CTRL + a + d`
 * To verify if the script is running execute:
 `sudo ps -ax | grep python`
-* To shut down the script, check de ID with the command grep and execute:
+* To shut down the script, check the ID with the grep command and execute:
 `sudo kill ID`
  
-**Repeat to Sender**
-
-
-
+**Repeat all steps for Sender**
 
 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/
+
