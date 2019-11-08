@@ -2,6 +2,15 @@
 
 Python code for communication between Raspberry Pi's using NRF24L01+ using [Newly Optimized RF24Network Layer](http://tmrh20.github.io/RF24Network/classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541). The "Sender" reads the flow from a YS-201F Sensor and sends to "Receiver" using NRF24L01+ transceiver.
 
+## Hardware
+
+* 2x Raspberry Pi 3 Model B (both with 16GB Class 10 microSD cards)
+* YS-201F Flow Sensor
+* Wires
+* 10k Resistor
+* 2x NRF24L01+ Transceiver (with antenna)
+* 2x 10μF electrolytic capacitor
+
 ## Installation
 
 * Install [RF24Network](https://github.com/nRF24/RF24Network).
@@ -26,8 +35,8 @@ Red ------------- 5V
 Yellow ----+----- GPIO23 (BCM Mode) / Pin 16 (BOARD Mode)
 Black ----------- Ground
 ```
-*NRF24L01+ Connections* 
-Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
+*NRF24L01+ Connections*
+  Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
 
 | NRF24L01+ | Raspberry Pin (BCM Mode)|
 | --- | --- |
