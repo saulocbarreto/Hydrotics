@@ -4,11 +4,9 @@ Python code for communication between Raspberry Pi's using NRF24L01+ using [Newl
 
 ## Installation
 
-Install 
+Install [Newly Optimized RF24Network Layer](http://tmrh20.github.io/RF24Network/classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541).
 
-```bash
-pip install foobar
-```
+
 
 ## Usage
 
@@ -17,17 +15,18 @@ pip install foobar
 
 *YS-201F Connections* (Change to Fritizing)
 
-Red ------------- 5V
+|Red ------------- 5V|
            +----- 3V3
            |
           10K
            |
-Yellow ----+----- GPIO23 (BCM Mode) or Pin 16 (BOARD Mode)
-Black ----------- Ground
+|Yellow ----+----- GPIO23 (BCM Mode) or Pin 16 (BOARD Mode)|
+|Black ----------- Ground|
 
 *NRF24L01+ Connections* (Draw with Fritizin)
+Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
 
-| NRF24L01 | Raspberry Pin (BCM Mode)|
+| NRF24L01+ | Raspberry Pin (BCM Mode)|
 | --- | --- |
 | 01 - GND | Pin 25 |
 | 02 - VCC | Pin 17 |
