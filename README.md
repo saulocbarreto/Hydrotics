@@ -35,8 +35,8 @@ Red ------------- 5V
 Yellow ----+----- GPIO23 (BCM Mode) / Pin 16 (BOARD Mode)
 Black ----------- Ground
 ```
-*NRF24L01+ Connections*
-  Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
+*NRF24L01+ Connections*<br/>
+Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
 
 | NRF24L01+ | Raspberry Pin (BCM Mode)|
 | --- | --- |
