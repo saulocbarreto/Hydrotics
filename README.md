@@ -5,8 +5,9 @@ Python code for communication between Raspberry Pi's using NRF24L01+ using [Newl
 ## Installation
 
 * Install [RF24Network](https://github.com/nRF24/RF24Network).
-* Compile the C++ code then execute the setup.py scripts from  nrRF24/RF24/pyRF24/pyRF24Network and nRF24/RFNetwork/RPi/pyNRF24Network
+* Compile the C++ code then execute the setup.py scripts to be able to use as python lib.
 * Install sqlite3 (`sudo apt-get install sqlite3`)
+* Install screen (`sudo apt-get install screen`)
 ## Usage
  1. Execute the "Receiver" code (`sudo python Rec/Receiver.py`)
  2. Execute the "Sender" code (`sudo python Send/Sender.py`)
@@ -14,18 +15,18 @@ Python code for communication between Raspberry Pi's using NRF24L01+ using [Newl
 
 ## Pins and Connections
 
-*YS-201F Connections* (Change to Fritizing)
+*YS-201F Connections* 
 ```
 Red ------------- 5V
+
            +----- 3V3
            |
           10K
            |
-    
-Yellow ----+----- GPIO23 (BCM Mode) or Pin 16 (BOARD Mode)
+Yellow ----+----- GPIO23 (BCM Mode) / Pin 16 (BOARD Mode)
 Black ----------- Ground
 ```
-*NRF24L01+ Connections* (Draw with Fritizin)
+*NRF24L01+ Connections* 
 Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (positive lead of the capacitor to GND and the negative lead to VCC).
 
 | NRF24L01+ | Raspberry Pin (BCM Mode)|
@@ -40,10 +41,26 @@ Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (
 | 08 - IRQ | - |
 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Set scripts to start on boot (rc.local) and using screen to see the output
 
-Please make sure to update tests as appropriate.
+`sudo nano /etc/rc.local`
+* Add the following line before line with `exit 0':
+`screen -dmS receiverscreen sudo python /path/to/Receiver.py $`
+* This will open a screen task (screen name: receiverscreen). In order to see the output execute:
+ `sudo screen -r receiverscreen`
+* To minimize the screen without shuting down the script (to detach) press:
+`CTRL + a + d`
+* To verify if the script is running execute:
+`sudo ps -ax | grep python`
+* To shut down the script, check de ID with the command grep and execute:
+`sudo kill ID`
+ 
+**Repeat to Sender**
+
+
+
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/
