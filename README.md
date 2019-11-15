@@ -54,7 +54,7 @@ Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (
 
 Edit the rc.local file: <br/>
 `sudo nano /etc/rc.local`
-* Add the following line before line with `exit 0`:
+* Add the following line before line with `exit 0`: <br/>
 `screen -dmS receiverscreen sudo python /path/to/Receiver.py $`
 * This will open a screen task (screen name: receiverscreen). In order to see the output run:
  `sudo screen -r receiverscreen`
