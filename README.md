@@ -14,7 +14,7 @@ Python code for communication between Raspberry Pi's using NRF24L01+ using [Newl
 ## Installation
 
 * Install [RF24Network](https://github.com/nRF24/RF24Network).
-* Compile the C++ code then execute the setup.py scripts to be able to use as python lib.
+* Compile the C++ code then execute the setup.py scripts to be able to use as a python lib.
 * Install sqlite3 (`sudo apt-get install sqlite3`)
 * Install screen (`sudo apt-get install screen`)
 ## Usage
@@ -54,11 +54,11 @@ Both transceivers have a 10μF electrolytic capacitor between GND and VCC pins (
 
 Edit the rc.local file: <br/>
 `sudo nano /etc/rc.local`
-* Add the following line before line with `exit 0':
+* Add the following line before line with `exit 0`:
 `screen -dmS receiverscreen sudo python /path/to/Receiver.py $`
-* This will open a screen task (screen name: receiverscreen). In order to see the output execute:
+* This will open a screen task (screen name: receiverscreen). In order to see the output run:
  `sudo screen -r receiverscreen`
-* To minimize the screen without shuting down the script (to detach) press:
+* To minimize the screen without shutting down the script (to detach) press:
 `CTRL + a + d`
 * To verify if the script is running execute:
 `sudo ps -ax | grep python`
