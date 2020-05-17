@@ -15,17 +15,6 @@ import db
 
 # CE Pin, CSN Pin, SPI Speed
 
-# Setup for GPIO 22 CE and GPIO 25 CSN with SPI Speed @ 1Mhz
-#radio = radio(RPI_V2_GPIO_P1_22, RPI_V2_GPIO_P1_18, BCM2835_SPI_SPEED_1MHZ)
-
-# Setup for GPIO 22 CE and CE0 CSN with SPI Speed @ 4Mhz
-#radio = RF24(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_4MHZ)
-
-# Setup for GPIO 22 CE and CE1 CSN with SPI Speed @ 8Mhz
-#radio = RF24(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ)
-
-# Setup for GPIO 22 CE and CE0 CSN for RPi B+ with SPI Speed @ 8Mhz
-#radio = RF24(RPI_BPLUS_GPIO_J8_22, RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ)
 
 radio = RF24(RPI_V2_GPIO_P1_15, RPI_V2_GPIO_P1_24, BCM2835_SPI_SPEED_8MHZ)
 network = RF24Network(radio)
@@ -46,23 +35,16 @@ network.begin(90, this_node)    # channel 90
 radio.printDetails()
 packets_sent = 0
 last_sent = 0
-mensagem=""
 while 1:
     network.update()
     while network.available():
-        info,message = network.read(32);
-        print("Got message: ");
-       # print(message);
+        info,message = network.read(32)
+        print("Got message: ")
         date,time,flow,volume = message.split(" ")
 	print(date,time,flow,volume)
 	datetime = date + " " + time + " "
 	datetime = str(datetime)
 	flow = str(flow)
 	volume = str(volume)
-        db.insertVariableIntoTable1(datetime, flow, volume)
-        #header, payload = network.read(8)
-        #print("payload length ", len(payload))
-        #ms, number = unpack('<LL', bytes(payload))
-        #print('Received payload ', number, ' at ', ms, ' from ', oct(header.from_node))
-    #time.sleep(1)
+    db.insertVariableIntoTable1(datetime, flow, volume)      
 
