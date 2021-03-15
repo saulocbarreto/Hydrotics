@@ -68,6 +68,3 @@ Edit the rc.local file: <br/>
 **Repeat all steps for Sender**
 
 
-
-## License
-
